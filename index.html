@@ -5,50 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Form</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 <body>
     
     <div class="container">
-        
         <div class="header-container">
             <h1 class="text-header">HTML Form</h1>
         </div>
 
         <div class="form-container">
 
-            <form action="" class="html-form">
+            <form action="" class="html-form" id="myForm">
                 <div class="input-row">
-                    <label for="">Name:</label>
-                    <input class="input-container" type="text" name="" id="">
+                    <label for="name">Name:</label>
+                    <input class="input-container" type="text" id="name">
                 </div>
                 <div class="input-row">
                     <label for="">Password:</label>
-                    <input class="input-container" type="password" name="" id="">
+                    <input class="input-container" type="password" id="pass">
                 </div>
                 <div class="input-row">
                     <label for="">Email:</label>
-                    <input class="input-container" type="email" name="" id="">
+                    <input class="input-container" type="email" id="email">
                 </div>
                 <div class="input-row">
                     <label for="">URL:</label>
-                    <input class="input-container" type="url" name="" id="">
+                    <input class="input-container" type="url" id="url">
                 </div>
                 <div class="input-row">
                     <label for="">Number:</label>
-                    <input class="input-container" type="number" name="" id="">
+                    <input class="input-container" type="number" id="number">
                 </div>
                 <div class="input-row">
                     <label for="">Telephone:</label>
-                    <input class="input-container" type="tel" name="" id="">
+                    <input class="input-container" type="tel" id="phone">
                 </div>
                 <div class="input-row">
                     <label for="">Search:</label>
-                    <input class="input-container" type="search" name="" id="">
+                    <input class="input-container" type="search" id="search">
                 </div>
                 <div class="input-row">
                     <label for="">Date and Time:</label>
-                    <input class="input-container" type="datetime" name="" id="">
+                    <input class="input-container" type="datetime" id="dateTime">
                 </div>
                 <div class="input-row">
                     <label for="">Salary:</label>
@@ -56,11 +54,13 @@
                     <output name="" for="" id="rangeValue">0</output>
                 </div>
                 <div class="input-row">
-                    <input class="button" type="button" value="Submit">
+                    <input class="button" type="submit" value="Submit">
                 </div>
             </form>
         </div>
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
