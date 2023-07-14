@@ -1,40 +1,44 @@
+class FormModel {
+    // name password email mobile
+
+    get name() { return this._name; }
+
+    set name(name) {
+        let nameRE = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
+        if (nameRE.test(name))
+            this._name = name;
+        else throw 'Invalid name';
+    }
+}
+
 // Salary slider 
 
-function rangeSlide(value) {
-    document.getElementById('rangeValue').innerHTML = value;
-}
+const salary = document.querySelector('#salary');
+const output = document.querySelector('.salary-output');
 
-// Form validation using regex
+output.textContent = salary.value;
+salary.addEventListener('input', function() {
+    output.textContent = salary.value;
+});
 
-function validateForm(name, pass) {
+window.addEventListener('DOMContentLoaded', (event) => {
 
-    let nameRegex = /^[A-Z]{1}[a-z]{2,}$/;
-    let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+-={}?|:;,.]).{8,32}$/;
+    // validate name and start date
 
-    if (!nameRegex.test(name)) {
-        alert("Invalid Name");
-        return false;
-    }
+    const name = document.querySelector('#name');
+    const textError = document.querySelector('.text-error');
 
-    if (!passwordRegex.test(pass)) {
-        alert("Invalid Password");
-        return false;
-    }
-
-    return true;
-
-}
-
-// Alert message
-
-document.getElementById('myForm').addEventListener("submit", function(event){
-    event.preventDefault();
-
-    let name = document.getElementById('name').value;
-    let pass = document.getElementById('pass').value;
-
-    if (validateForm(name, pass)) {
-        alert(`Form Submitted Successfully!\n\nName: ${name}\n\nPassword: ${pass}`);
-    }
+    name.addEventListener('input', function() {
+        if (name.value.length == 0) {
+            textError.textContent = "";
+            return;
+        }
+        try {
+            (new FormModel()).name = name.value;
+            textError.textContent = "";
+        } catch (e) {
+            textError.textContent = e;
+        }
+    });
 
 });
