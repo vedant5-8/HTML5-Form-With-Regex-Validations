@@ -19,6 +19,15 @@ class FormModel {
         else throw 'Invalid Email';
     }
 
+    get phone() { return this._phone }
+
+    set phone(phone) {
+        let phoneRE = RegExp('^((\\+91)|91|0)?[789][0-9]{9}$');
+        if (phoneRE.test(phone))
+            this._phone = phone;
+        else throw 'Invalid Phone Number';
+    }
+
 }
 
 // Salary slider 
@@ -69,6 +78,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
+    // Validate phone
 
+    const phoneError = document.querySelector('.phone-error');
+    const phone = document.querySelector('#phone');
+
+    phone.addEventListener('input', function() {
+        if(phone.value.length == 0) {
+            phoneError.textContent = "";
+            return;
+        }
+        try {
+            (new FormModel()).phone = phone.value;
+            phoneError.textContent = "";
+        } catch (e) {
+            phoneError.textContent = e;
+        }
+    });
 
 });
