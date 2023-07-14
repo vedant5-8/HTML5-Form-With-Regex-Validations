@@ -23,7 +23,7 @@ salary.addEventListener('input', function() {
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
-    // validate name and start date
+    // validate name
 
     const name = document.querySelector('#name');
     const textError = document.querySelector('.text-error');
