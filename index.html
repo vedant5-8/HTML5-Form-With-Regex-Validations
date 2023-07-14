@@ -24,11 +24,11 @@
                         <form action="" class="form-container">
                             <div class="row mb-3">
                                 <div class="col-sm-3 align-items-center">
-                                    <label for="name" class="form-label">Name</label>
+                                    <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name">
-                                    <error-output class="text-error text-danger"></error-output>
+                                    <input type="text" class="form-control" id="name" required>
+                                    <error-output class="name-error text-danger"></error-output>
                                 </div>
                             </div>
 
@@ -37,16 +37,17 @@
                                     <label for="name" class="form-label">Password</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="pass">
+                                    <input type="password" class="form-control" id="password">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-sm-3">
-                                    <label for="name" class="form-label">Email</label>
+                                    <label for="name" class="form-label">Email<span class="text-danger">*</span></label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="email" class="form-control">
+                                    <input type="email" class="form-control" id="email" required>
+                                    <error-output class="email-error text-danger"></error-output>
                                 </div>
                             </div>
 

@@ -7,8 +7,18 @@ class FormModel {
         let nameRE = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
         if (nameRE.test(name))
             this._name = name;
-        else throw 'Invalid name';
+        else throw 'Invalid Name';
     }
+
+    get email() { return this._email }
+
+    set email(email) {
+        let emailRE = RegExp('^[0-9a-zA-Z]+[+._-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$');
+        if (emailRE.test(email))
+            this._email = email;
+        else throw 'Invalid Email';
+    }
+
 }
 
 // Salary slider 
@@ -25,8 +35,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
     // validate name
 
+    const textError = document.querySelector('.name-error');
     const name = document.querySelector('#name');
-    const textError = document.querySelector('.text-error');
 
     name.addEventListener('input', function() {
         if (name.value.length == 0) {
@@ -40,5 +50,25 @@ window.addEventListener('DOMContentLoaded', (event) => {
             textError.textContent = e;
         }
     });
+
+    // validate email
+
+    const emailError = document.querySelector('.email-error');
+    const email = document.querySelector('#email');
+
+    email.addEventListener('input', function() {
+        if (email.value.length == 0) {
+            emailError.textContent = "";
+            return;
+        }
+        try {
+            (new FormModel()).email = email.value;
+            emailError.textContent = "";
+        } catch (e) {
+            emailError.textContent = e;
+        }
+    });
+
+
 
 });
