@@ -28,6 +28,15 @@ class FormModel {
         else throw 'Invalid Phone Number';
     }
 
+    get password() { return this._password }
+
+    set password(password) {
+        let passwordRE = RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+-={}?|:]).{8,32}$');
+        if (passwordRE.test(password))
+            this._password = password;
+        else throw 'Invalid Password';
+    }
+
 }
 
 // Salary slider 
@@ -93,6 +102,21 @@ window.addEventListener('DOMContentLoaded', (event) => {
             phoneError.textContent = "";
         } catch (e) {
             phoneError.textContent = e;
+        }
+    });
+
+    const passwordError = document.querySelector('.password-error');
+    const password = document.querySelector('#password');
+
+    password.addEventListener('input', function() {
+        if (password.value.length == 0) {
+            passwordError.textContent = "";
+        }
+        try {
+            (new FormModel()).password = password.value;
+            passwordError.textContent = "";
+        } catch (e) {
+            passwordError.textContent = e;
         }
     });
 
